@@ -23,43 +23,34 @@
 	
 	Connection conn = null;
 	PreparedStatement stmt =null;
-	ResultSet rs =null;
+	
 	
 	try{
 	String driver = "com.mysql.jdbc.Driver";
-	String url = "jdbc:mysql://127.0.0.1:3306/jjdev?useUnicode=true&characterEncoding=euckr";
+	String url = "jdbc:mysql://127.0.0.1:3306/jjdevmall?useUnicode=true&characterEncoding=utf-8";
 	String dbUser = "root";
 	String dbPw = "java0000";
 	Class.forName(driver);
 	
 	conn = DriverManager.getConnection(url, dbUser, dbPw);
 	
-	String sql = "INSERT INTO member(member_id,member_pw,member_name,member_sex,member_age) VALUES(?,?,?,?,?)";
+	String sql = "insert into member(member_id,member_pw,member_name,member_sex,member_age) VALUES(?,?,?,?,?)";
 	stmt = conn.prepareStatement(sql);
 	stmt.setString(1,memberId);
 	stmt.setString(2,memberPw);
 	stmt.setString(3,memberName);
 	stmt.setString(4,memberSex);
-	stmt.setInt(5,memberAge);
+	stmt.setInt(5, memberAge);
 	stmt.executeUpdate();
-	
-	
-	
-	
-	
-	
-	
-	
+
 	
 	} catch(SQLException ex) {
 		out.println(ex.getMessage());
 		ex.printStackTrace();
 	} finally {		
-		if (rs != null) try { rs.close(); } catch(SQLException ex) {}
 		if (stmt != null) try { stmt.close(); } catch(SQLException ex) {}
 		if (conn != null) try { conn.close(); } catch(SQLException ex) {}
 	}
-	
 
 %>
 </body>
