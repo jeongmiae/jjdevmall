@@ -56,7 +56,6 @@
 	PreparedStatement stmt2 = conn.prepareStatement(sql2);
 	stmt2.setInt(1,key);
 	stmt2.setString(2,memberAdd);
-	System.out.println(key + "stmt2");
 	result = stmt2.executeUpdate();
 	
 	conn.commit();
