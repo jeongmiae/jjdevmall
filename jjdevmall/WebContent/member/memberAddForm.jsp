@@ -27,7 +27,12 @@ $(document).ready(function(){
 		}else if($('#memberAge').val() == ""){
 		
 			$('#sapage').text("입력하세요");
-			$('#memberAge').focus();	
+			$('#memberAge').focus();
+			
+		}else if($('#memberAdd').val() == ""){
+			
+			$('#sapadd').text("입력하세요");
+			$('#memberAdd').focus();	
 		}else{	
 			
 			$('#addForm').submit();
@@ -66,6 +71,11 @@ $(document).ready(function(){
 	<label>member_age :</label>
 	<input type="text" id ="memberAge"  name="memberAge">
 	<span id="sapage"></span>
+	</div>
+	<div>	
+	<label>member_add :</label>
+	<input type="text" id ="memberAdd"  name="memberAdd">
+	<span id="sapadd"></span>
 	</div>
 	<input type="button" id="memberbtn" value="확인">
 </form>
