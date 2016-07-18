@@ -24,15 +24,17 @@
 	System.out.println(memberAdd+":memberAdd");
 	
 	Connection conn = null;
+	
 		
 	try{
+	//드라이버로딩,db연결	
 	String driver = "com.mysql.jdbc.Driver";
 	String url = "jdbc:mysql://127.0.0.1:3306/jjdevmall?useUnicode=true&characterEncoding=utf-8";
 	String dbUser = "root";
 	String dbPw = "java0000";
 	Class.forName(driver);
-	
 	conn = DriverManager.getConnection(url, dbUser, dbPw);
+	//commit
 	conn.setAutoCommit(false);
 	
 	String sql1 = "insert into member(member_id,member_pw,member_name,member_sex,member_age) VALUES(?,?,?,?,?)";
@@ -60,7 +62,9 @@
 	
 	conn.commit();
 
-	}}catch(Exception e){
+	}
+	
+	}catch(Exception e){
 		conn.rollback();
 		e.printStackTrace();
 	}
